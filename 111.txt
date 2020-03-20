@@ -1,0 +1,228 @@
+
+> 请求URL: http://pre-inner.gacicv.com/iov-vehicle-gateway/v1/platform/vehicle/access_gateway/get_vehicle_status
+> 请求方法类型: POST
+> 打印请求头：
+>  companyId-->4
+>  clientId-->9442134791
+>  vin-->LVGBXA024KG000022
+>  token-->451d983c-bc7e-4352-baa9-ef568aee3d24
+>  Content-Type-->application/json
+> 请求BODY数据: {"grade":0,"vin":"LVGBXA024KG000022","operatorId":"9442134791"}
+> 原始响应信息: {"code":0,"msg":"成功","data":{"online":0,"updateTime":1567404571000,"identifier":{"event":"get_vehicle_status","sessionId":"4_ed55dea8-c88f-47de-8e11-05798efbdb79"},"results":[{"accessUnit":0,"doorAccessors":[{"door":1,"openMode":0,"lock":1},{"door":2,"openMode":0,"lock":1},{"door":3,"openMode":0,"lock":-1},{"door":4,"openMode":0,"lock":-1}],"windowAccessors":[{"window":1},{"window":2},{"window":3},{"window":4}],"sunroofAccessors":[{"raise":0,"openMode":0}],"hatchAccessors":[{"hatch":1,"openMode":0},{"hatch":2,"openMode":0}],"lightAccessors":[{"light":1,"open":-1},{"light":2,"open":-1},{"light":3,"open":-1},{"light":4,"open":-1},{"light":5,"open":-1},{"light":6,"open":-1},{"light":7,"open":-1},{"light":8,"open":-1},{"light":10,"open":-1}],"engineAccessors":[{"enable":1,"start":-1}],"batteryAccessors":[{"battery":1,"voltage":13.6,"remainElectricityPercentage":0.485,"temperature":27.0,"alarms":[]}],"tyreAccessors":[{"tyre":1,"pressure":17.0,"pressureUnit":0,"temperature":29.0,"temperatureUnit":0,"alarms":[]},{"tyre":2,"pressure":16.0,"pressureUnit":0,"temperature":29.0,"temperatureUnit":0,"alarms":[]},{"tyre":3,"pressure":15.2,"pressureUnit":0,"temperature":28.0,"temperatureUnit":0,"alarms":[]},{"tyre":4,"pressure":15.9,"pressureUnit":0,"temperature":27.0,"temperatureUnit":0,"alarms":[]}],"chargingAccessors":[{"chargingMode":2,"chargingStatus":0,"weeklyReservation":15,"dailyReservationStartTime":30600000,"dailyReservationStopTime":81600000,"chargingVoltage":0.0,"chargingCurrent":0.0,"estimatedChargedDuration":0}],"drivingOverviewAccessors":[{"totalVoyageCourse":152.0,"remainVoyageCourse":247.0,"lengthUnit":0,"averageElectricityConsumption":34.4,"remainElectricityPercentage":0.485,"electricityConsumptionUnit":0.0}],"brakeAccessors":[{"alarms":[]}],"airConditionAccessors":[{"temperature":18.0,"temperatureUnit":0}],"seatTemperatureAccessors":[{"seat":1,"temperatureMode":0,"temperatureStrength":0.0,"windStrength":0.0,"enableWind":0},{"seat":2,"temperatureMode":0,"temperatureStrength":0.0,"windStrength":0.0,"enableWind":0},{"temperatureMode":0,"temperatureStrength":0.0,"windStrength":0.0,"enableWind":0},{"temperatureMode":0,"temperatureStrength":0.0,"windStrength":0.0,"enableWind":0}],"positionAccessors":[{"dateTime":"190902 020931.031","longitude":113.487958,"latitude":22.837222,"positionMode":0}]}]}}
+
+
+> 请求URL: http://pre-inner.gacicv.com/iov-vehicle-gateway/v1/platform/vehicle/access_gateway/get_position_status
+> 请求方法类型: POST
+> 打印请求头：
+>  companyId-->4
+>  clientId-->9442134791
+>  vin-->LVGBXA024KG000022
+>  token-->451d983c-bc7e-4352-baa9-ef568aee3d24
+>  Content-Type-->application/json
+> 请求BODY数据: {"grade":0,"vin":"LVGBXA024KG000022","operatorId":"9442134791"}
+> 原始响应信息: {"code":0,"msg":"成功","data":{"online":0,"updateTime":1567404571000,"identifier":{"event":"get_vehicle_status","sessionId":"4_6b5d8e99-a989-4597-a34f-6aae525f9f84"},"results":[{"accessUnit":304,"positionAccessors":[{"dateTime":"190902 020931.031","longitude":113.487958,"latitude":22.837222,"positionMode":0}]}]}}
+
+
+解绑车辆
+> 请求URL: http://pre-inner.gacicv.com/oauth/resource/account/unbind_car?access_token=a5df1703-d1a0-4952-bf29-58b28b983a82
+> 请求方法类型: POST
+> 打印请求头：
+>  companyId-->4
+>  clientId-->9442134791
+>  Content-Type-->application/json
+> 请求BODY数据: {"tinyId":"144115205374726097","ownerFlag":true,"vin":"LVGBXA024KG000022"}
+> 原始响应信息: {"code":0,"msg":""}
+
+
+
+取消预约充电
+> 请求URL: http://pre-inner.gacicv.com/iov-vehicle-gateway/v1/platform/vehicle/access_gateway/charging/reservation
+> 请求方法类型: POST
+> 打印请求头：
+>  companyId-->4
+>  clientId-->9442134791
+>  vin-->LVGBXA024KG000022
+>  token-->40200c5f-7464-4407-8989-4aedd08311f3
+>  Content-Type-->application/json
+> 请求BODY数据: {"identifier":{"vin":"LVGBXA024KG000022","operatorId":"9442134791","grade":2},"operations":[{"chargingMode":0}]}
+> 原始响应信息: {"code":13001,"msg":"ongoing","data":{"identifier":{"event":"control_charging","sessionId":"4_55508228-1562-4ff2-8745-43ac3dee46a5"}}}
+> 请求耗时：118 ms
+2019-08-28 10:40:46.611 DEBUG 40785 --- [57-14956-exec-5] .x.h.i.RemoteChargingSettingsHandlerImpl : 调用腾讯【X9E】【取消预约充电时间设置】接口成功，返回的>结果为：TspResponse{code=13001, msg='ongoing', data=VehicleAccessorStatusData{businessErrorCode=null, online=null, updateTime=null, identifier=RequestIdentifier{vin='null', event='control_charging', operatorId='null', sessionId='4_55508228-1562-4ff2-8745-43ac3dee46a5', grade=null}, results=null, rawRequestPacket='null', rawResponsePacket='null'}}
+2019-08-28 10:40:46.613  INFO 40785 --- [57-14956-exec-5] c.t.t.c.l.ReqRespLoggingFilter           :
+1562 * Server out-bound response
+1562 < 200
+1562 <
+{"status":"SUCCEED","data":"ea1974db42027ee99356ad7f1cbb942b"}
+
+
+预约充电
+> 请求URL: http://pre-inner.gacicv.com/iov-vehicle-gateway/v1/platform/vehicle/access_gateway/charging/reservation
+> 请求方法类型: POST
+> 打印请求头：
+>  companyId-->4
+>  clientId-->9442134791
+>  vin-->LNAA2AA26K5S10104
+>  token-->40200c5f-7464-4407-8989-4aedd08311f3
+>  Content-Type-->application/json
+> 请求BODY数据: {"identifier":{"vin":"LNAA2AA26K5S10104","operatorId":"9442134791","grade":2},"operations":[{"chargingMode":2,"weeklyReservation":15,"dailyReservationStartTime":25200000,"dailyReservationStopTime":97200000}]}
+> 原始响应信息: {"code":13001,"msg":"ongoing","data":{"identifier":{"event":"control_charging","sessionId":"4_29cc9758-40f1-4bcb-ad49-118ef1c216ba"}}}
+> 请求耗时：356 ms
+2019-08-28 10:30:04.137 DEBUG 40785 --- [57-14956-exec-3] .x.h.i.RemoteChargingSettingsHandlerImpl : 调用腾讯【X9E】【预约充电时间设置】接口成功，返回的结果>为：TspResponse{code=13001, msg='ongoing', data=VehicleAccessorStatusData{businessErrorCode=null, online=null, updateTime=null, identifier=RequestIdentifier{vin='null', event='control_charging', operatorId='null', sessionId='4_29cc9758-40f1-4bcb-ad49-118ef1c216ba', grade=null}, results=null, rawRequestPacket='null', rawResponsePacket='null'}}
+2019-08-28 10:30:04.139  INFO 40785 --- [57-14956-exec-3] c.t.t.c.l.ReqRespLoggingFilter           :
+1538 * Server out-bound response
+1538 < 200
+1538 <
+{"status":"SUCCEED","data":"943eb7ad27fac6edd3085ccdd494bb47"}
+
+
+
+推送结果：
+POST http://10.123.48.136:10000/internal/remote-notify/result
+
+{"code":0,"msg":"成功","data":{"updateTime":1566960047166,"identifier":{"vin":"LVGBXA024KG000022","vehicleType":"T1CR2DA1CN12","event":"control_charging","sessionId":"4_55508228-1562-4ff2-8745-43ac3dee46a5","grade":2},"results":[{"chargingMode":0,"chargingStatus":0,"chargingVoltage":0.0,"chargingVoltageFlag":1,"chargingCurrent":0.0,"chargingCurrentFlag":1,"dischargeVoltage":511.0,"dischargeVoltageFlag":0,"dischargeCurrent":51.1,"dischargeCurrentFlag":0,"estimatedChargedDuration":0,"estimatedChargedDurationFlag":1,"weeklyReservation":15,"dailyReservationStartTime":30600000,"dailyReservationStopTime":81600000,"startTime":{"year":0,"month":0,"day":0,"hour":8,"minute":30,"second":0,"millisecond":0},"stopTime":{"year":0,"month":0,"day":0,"hour":22,"minute":40,"second":0,"millisecond":0},"alarms":[]}]}}
+
+{"status":"SUCCEED"}
+
+
+
+
+【获取最近一次的充电状态】请求
+
+> 请求URL: http://pre-inner.gacicv.com/iov-vehicle-gateway/v1/platform/vehicle/access_gateway/get_charging_status
+> 请求方法类型: POST
+> 打印请求头：
+>  companyId-->4
+>  clientId-->9442134791
+>  vin-->LNAA2AA26K5S10104
+>  token-->a5df1703-d1a0-4952-bf29-58b28b983a82
+>  Content-Type-->application/json
+> 请求BODY数据: {"vin":"LNAA2AA26K5S10104","operatorId":"9442134791"}
+> 原始响应信息: {"code":0,"msg":"成功","data":{"online":0,"updateTime":1565334101000,"identifier":{"event":"get_vehicle_status","sessionId":"4_e6eaab5d-e76e-4c29-bb60-b854bad94794"},"results":[{"accessUnit":210,"chargingAccessors":[{"chargingMode":-1,"chargingStatus":0,"weeklyReservation":0,"dailyReservationStartTime":1567087200000,"dailyReservationStopTime":1567116000000,"chargingVoltage":0.0,"chargingCurrent":0.0,"estimatedChargedDuration":0}]}]}}
+
+【电池状态查询】
+
+> 请求URL: http://pre-inner.gacicv.com/iov-vehicle-gateway/v1/platform/vehicle/access_gateway/get_battery_status
+> 请求方法类型: POST
+> 打印请求头：
+>  companyId-->4
+>  clientId-->9442134791
+>  vin-->LNAA2AA26K5S10104
+>  token-->a5df1703-d1a0-4952-bf29-58b28b983a82
+>  Content-Type-->application/json
+> 请求BODY数据: {"vin":"LNAA2AA26K5S10104","operatorId":"9442134791"}
+> 原始响应信息: {"code":0,"msg":"成功","data":{"online":0,"updateTime":1565334101000,"identifier":{"event":"get_vehicle_status","sessionId":"4_60e0f0d4-30fa-4c2f-a5e0-c36f4e08f6c3"},"results":[{"accessUnit":203,"batteryAccessors":[{"battery":1,"voltage":13.1,"remainElectricityPercentage":0.652,"temperature":34.0,"alarms":[]}]}]}}
+
+调用腾讯【X9E】【车况】【电池】接口成功
+{"status":"SUCCEED","data":{"status":"SUCCEED","errorMsg":"0.成功","updateTime":1565334101000,"content":{"chargingMode":"NOT_GET","cycleDate":"","reservationStartTime":1567087200000,"reservationStopTime":1567116000000,"chargingStatus":"NOTHING","chargingVoltage":0.0,"chargingCurrent":0.0,"chargingDuration":0,"batteryTemp":34.0}}}
+
+
+
+告警推送
+POST http://10.123.48.136:10000/internal/warning/warningInfo
+{"updateTime":1567071305693,"identifier":{"vin":"TEST2018111400021","din":"TEST2018111400021"},"alarmStatus":[{"alarmSource":208,"alarms":[{"businessAlarmReason":null,"alarmObject":0,"alarmReason":2,"alarmMessage":"车辆位置异常移动","alarmTime":null,"alarmPosition":null,"alarmLevel":null}],"alarmMessage":"车辆位>置异常移动"}]}
+
+
+> 请求URL: http://pre-inner.gacicv.com/oauth/resource/account/bind_car?access_token=a5df1703-d1a0-4952-bf29-58b28b983a82
+> 请求方法类型: POST
+> 打印请求头：
+>  companyId-->4
+>  clientId-->9442134791
+>  Content-Type-->application/json
+> 请求BODY数据: {"tinyId":"144115205374726097","ownerFlag":true,"vin":"LVGBXA024KG000022"}
+> 原始响应信息: {"code":0,"msg":""}
+> 请求耗时：210 ms
+2019-08-30 08:08:36.877 DEBUG 81879 --- [56-14957-exec-3] c.t.g.a.x.d.i.TServiceDaoImpl            : 调用腾讯平台绑定车辆接口完成，当前时间:1567123716877,耗>时:210 ms
+2019-08-30 08:08:36.877 DEBUG 81879 --- [56-14957-exec-3] c.t.g.a.x.d.i.TServiceDaoImpl            : 绑定车辆返回结果:TspResponse{code=0, msg='', data=null}
+2019-08-30 08:08:36.897  INFO 81879 --- [56-14957-exec-3] c.t.t.c.l.ReqRespLoggingFilter           :
+22 * Server out-bound response
+22 < 200
+22 <
+{"status":"SUCCEED","data":"144115205374726097"}
+
+车机登录scan
+> 请求URL: http://pre-inner.gacicv.com/oauth/resource/account/qr/login/scan?access_token=40200c5f-7464-4407-8989-4aedd08311f3
+> 请求方法类型: POST
+> 打印请求头：
+>  companyId-->4
+>  clientId-->9442134791
+>  Content-Type-->application/json
+> 请求BODY数据: {"tinyId":"144115205374726100","qrText":"https://sa.carapp.gtmc.com.cn:1443/r/Ja?gac_qr=1&issuer=22&session=0e9622f1-e58a-4c79-8d9c-f10ab838b223&type=2"}
+> 原始响应信息: {"code":0,"data":{"name":"22","vin":"TESTAVNT123456790","time":1566955467}}
+> 请求耗时：93 ms
+2019-08-28 09:24:29.606 DEBUG 40785 --- [57-14956-exec-7] c.t.g.a.x.d.i.TServiceDaoImpl            : 调用腾讯平台扫码登录scan接口完成，当前时间:1566955469606,耗时:93 ms
+2019-08-28 09:24:29.606 DEBUG 40785 --- [57-14956-exec-7] c.t.g.a.x.d.i.TServiceDaoImpl            : 扫码登录scan返回结果:TspResponse{code=0, msg='null', data={name=22, vin=TESTAVNT123456790, time=1566955467}}
+2019-08-28 09:24:29.607  INFO 40785 --- [57-14956-exec-7] c.t.t.c.l.ReqRespLoggingFilter           :
+1518 * Server out-bound response
+1518 < 200
+1518 <
+{"status":"SUCCEED","data":{"name":"22","vin":"TESTAVNT123456790","time":1566955467}}
+
+
+车机登录confirm
+> 请求URL: http://pre-inner.gacicv.com/oauth/resource/account/qr/login/confirm?access_token=a5df1703-d1a0-4952-bf29-58b28b983a82
+> 请求方法类型: POST
+> 打印请求头：
+>  companyId-->4
+>  clientId-->9442134791
+>  Content-Type-->application/json
+> 请求BODY数据: {"tinyId":"144115205374726097","qrText":"https://sa.carapp.gtmc.com.cn:1443/r/Ja?gac_qr=1&issuer=22&session=4ae67ae1-6889-4e87-9209-bf72bb60b33f&type=2"}
+> 原始响应信息: {"code":0}
+> 请求耗时：160 ms
+2019-08-30 08:46:45.917 DEBUG 81879 --- [56-14957-exec-9] c.t.g.a.x.d.i.TServiceDaoImpl            : 调用腾讯平台扫码登录confirm接口完成，当前时间:1567126005917,耗时:160 ms
+2019-08-30 08:46:45.917 DEBUG 81879 --- [56-14957-exec-9] c.t.g.a.x.d.i.TServiceDaoImpl            : 扫码登录confirm返回结果:TspResponse{code=0, msg='null', data=null}
+2019-08-30 08:46:45.918  INFO 81879 --- [56-14957-exec-9] c.t.t.c.l.ReqRespLoggingFilter           :
+26 * Server out-bound response
+26 < 200
+26 <
+{"status":"SUCCEED"}
+
+
+远控
+> 请求URL: http://pre-inner.gacicv.com/iov-vehicle-gateway/v1/platform/vehicle/access_gateway/control_seat_temperature
+> 请求方法类型: POST
+> 打印请求头：
+>  companyId-->4
+>  clientId-->9442134791
+>  vin-->LVGBXA024KG000022
+>  token-->a5df1703-d1a0-4952-bf29-58b28b983a82
+>  Content-Type-->application/json
+> 请求BODY数据: {"identifier":{"vin":"LVGBXA024KG000022","operatorId":"9442134791","grade":2},"operations":[{"seat":1,"temperatureMode":2,"temperatureStrength":0.0},{"seat":2,"temperatureMode":2,"temperatureStrength":0.0}]}
+> 原始响应信息: {"code":13001,"msg":"ongoing","data":{"updateTime":1567129969304,"identifier":{"event":"control_seat_temperature","sessionId":"4_dcd8ea1a-ad77-4f3c-9cb3-c63090de0478"}}}
+
+每个远控下发成功后，x9e会调用
+POST http://10.123.48.136:10000/internal/remote-notify/result
+
+把执行结果推送回来：
+{"code":0,"msg":"成功","data":{"updateTime":1567129969756,"identifier":{"vin":"LVGBXA024KG000022","event":"control_seat_temperature","sessionId":"4_dcd8ea1a-ad77-4f3c-9cb3-c63090de0478"},"results":[{"seat":1,"temperatureMode":0,"temperatureUnit":0,"temperatureStrength":0.0,"enableWind":0,"windStrength":0.0},{"seat":2,"temperatureMode":3,"temperatureUnit":0,"temperatureStrength":0.0,"enableWind":1,"windStrength":2.0},{"seat":3,"temperatureMode":0,"temperatureUnit":0,"temperatureStrength":0.0,"enableWind":0,"windStrength":0.0},{"seat":4,"temperatureMode":0,"temperatureUnit":0,"temperatureStrength":0.0,"enableWind":0,"windStrength":0.0}]}}
+
+{"status":"SUCCEED"}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+ 
